@@ -1,413 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Income Opportunity</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-            max-width: 380px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .header {
-            background: linear-gradient(90deg, #ff416c, #ff4b2b);
-            color: white;
-            padding: 25px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
-        }
-        
-        h1 {
-            font-size: 26px;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        
-        .subheading {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        
-        .features {
-            padding: 25px 20px;
-            text-align: left;
-        }
-        
-        .feature-item {
-            display: flex;
-            margin-bottom: 15px;
-            align-items: flex-start;
-        }
-        
-        .tick {
-            color: #4CAF50;
-            font-size: 22px;
-            margin-right: 12px;
-            min-width: 22px;
-            flex-shrink: 0;
-        }
-        
-        .feature-text {
-            font-size: 16px;
-            color: #333;
-            line-height: 1.4;
-        }
-        
-        .info {
-            background: #f9f9f9;
-            padding: 20px;
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cta-button {
-            display: block;
-            background: linear-gradient(90deg, #00c853, #00b248);
-            color: white;
-            text-decoration: none;
-            padding: 18px;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button:hover {
-            background: linear-gradient(90deg, #00b248, #009e40);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(rgba(255,255,255,0.1), transparent);
-            transform: rotate(30deg);
-            transition: transform 0.5s ease;
-        }
-        
-        .cta-button:hover::after {
-            transform: rotate(30deg) translate(20%, 20%);
-        }
-        
-        .arrow {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-        
-        .cta-button:hover .arrow {
-            transform: translate(5px, -50%);
-        }
-        
-        .disclaimer {
-            padding: 15px;
-            font-size: 12px;
-            color: #999;
-            background: #f5f5f5;
-        }
-        
-        .testimonials {
-            padding: 20px;
-            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-            border-top: 1px solid #eee;
-        }
-        
-        .testimonials-title {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .testimonials-title i {
-            color: #ff4b2b;
-            margin-right: 10px;
-        }
-        
-        .testimonial-item {
-            display: flex;
-            margin-bottom: 20px;
-            text-align: left;
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-left: 3px solid #00c853;
-        }
-        
-        .user-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: #2575fc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            flex-shrink: 0;
-            margin-right: 15px;
-        }
-        
-        .testimonial-content {
-            flex-grow: 1;
-        }
-        
-        .user-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .testimonial-text {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.4;
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-        
-        .payment-details {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #00b248;
-        }
-        
-        .payment-details i {
-            margin-right: 5px;
-        }
-        
-        .payment-amount {
-            font-weight: bold;
-            margin-left: 5px;
-        }
-        
-        .verified-badge {
-            background: #4CAF50;
-            color: white;
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-        }
-        
-        .verified-badge i {
-            margin-right: 3px;
-            font-size: 9px;
-        }
-        
-        .payment-proof {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-            color: #2575fc;
-            font-size: 12px;
-        }
-        
-        .payment-proof i {
-            margin-right: 5px;
-        }
-        
-        .statistics {
-            display: flex;
-            justify-content: space-around;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 15px 10px;
-            font-size: 13px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 3px;
-        }
-        
-        .stat-label {
-            font-size: 12px;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 400px) {
-            .container {
-                max-width: 100%;
-            }
-            
-            .statistics {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>লোড হচ্ছে...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .spinner {
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 16px;
+      opacity: 0.8;
+    }
+  </style>
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://www.adsterra.com/your-direct-link"; // এখানে আপনার Adsterra ডিরেক্ট লিংক বসান
+    }, 1000);
+  </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>INCOME $50-$100</h1>
-            <div class="subheading">PER DAY FOR FREE!</div>
-        </div>
-        
-        <div class="statistics">
-            <div class="stat-item">
-                <div class="stat-number">12,458+</div>
-                <div class="stat-label">Active Users</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">$1.2M+</div>
-                <div class="stat-label">Paid Out</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support</div>
-            </div>
-        </div>
-        
-        <div class="features">
-            <div class="feature-item">
-                <div class="tick">✔</div>
-                <div class="feature-text">Income if you do a small job on mobile!</div>
-            </div>
-            <div class="feature-item">
-                <div class="tick">✔</div>
-                <div class="feature-text">Absolutely free - No investment!</div>
-            </div>
-        </div>
-        
-        <div class="info">
-            <p>If you want to work, the link is provided. Start work by clicking.</p>
-        </div>
-        
-        <a href="https://www.profitableratecpm.com/yppak428s?key=9cfcbb64a76c0c153ff07b5dcf3c6025" class="cta-button" target="_blank">
-            START WORK
-            <span class="arrow">→</span>
-        </a>
-        
-        <div class="testimonials">
-            <div class="testimonials-title">
-                <i class="fas fa-comment-dots"></i> Real Payment Proofs
-            </div>
-            
-            <div class="testimonial-item">
-                <div class="user-avatar">SJ</div>
-                <div class="testimonial-content">
-                    <div class="user-name">Sarah Johnson <span class="verified-badge"><i class="fas fa-check"></i> Verified</span></div>
-                    <div class="testimonial-text">"I made $82 on my first day! Just by completing simple surveys during my commute. The payment arrived in my PayPal within hours!"</div>
-                    <div class="payment-details">
-                        <i class="fas fa-money-bill-wave"></i> Received: <span class="payment-amount">$82.50</span>
-                    </div>
-                    <div class="payment-proof">
-                        <i class="fas fa-receipt"></i> Payment proof available
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-item">
-                <div class="user-avatar">MR</div>
-                <div class="testimonial-content">
-                    <div class="user-name">Michael Rodriguez <span class="verified-badge"><i class="fas fa-check"></i> Verified</span></div>
-                    <div class="testimonial-text">"As a student, this has been a game-changer. I've earned $375 this week by testing apps in my free time. No special skills needed!"</div>
-                    <div class="payment-details">
-                        <i class="fas fa-money-bill-wave"></i> Received: <span class="payment-amount">$375.20</span>
-                    </div>
-                    <div class="payment-proof">
-                        <i class="fas fa-receipt"></i> Payment proof available
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-item">
-                <div class="user-avatar">PC</div>
-                <div class="testimonial-content">
-                    <div class="user-name">Priya Chandran <span class="verified-badge"><i class="fas fa-check"></i> Verified</span></div>
-                    <div class="testimonial-text">"I was skeptical at first, but after getting my first $65 payment, I'm hooked! I now earn consistently $90-$110 daily. Best side hustle ever!"</div>
-                    <div class="payment-details">
-                        <i class="fas fa-money-bill-wave"></i> Received: <span class="payment-amount">$107.80</span>
-                    </div>
-                    <div class="payment-proof">
-                        <i class="fas fa-receipt"></i> Payment proof available
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="disclaimer">
-            Note: Individual results may vary based on time invested and task availability. This is not a get-rich-quick program.
-        </div>
-    </div>
-    
-    <script>
-        // Add subtle animation to the button on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const button = document.querySelector('.cta-button');
-            setTimeout(() => {
-                button.style.transform = 'scale(1.02)';
-                button.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
-                
-                setTimeout(() => {
-                    button.style.transform = '';
-                    button.style.boxShadow = '';
-                }, 500);
-            }, 1000);
-        });
-    </script>
+
+  <h1>অনুগ্রহ করে অপেক্ষা করুন...</h1>
+  <div class="spinner"></div>
+  <div class="note">বিজ্ঞাপনে নিয়ে যাওয়া হচ্ছে</div>
+
 </body>
 </html>
